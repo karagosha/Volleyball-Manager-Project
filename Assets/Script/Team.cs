@@ -17,7 +17,7 @@ namespace Assets.Script
         }
 
         public List<Player> Players;
-        String Name, Country;
+        public String Name, Country;
         Int32 WinStats, LoseStats, CountOfGames;
         public void AddPlayers()
         {
