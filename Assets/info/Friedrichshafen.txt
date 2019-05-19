@@ -1,0 +1,30 @@
+﻿30
+23
+7
+Markus Steuerwald
+Libero
+Thilo Späth-Westerholt
+Libero
+Andreas Takvam
+Middle-blocker
+Jakob Günthör
+Middle-blocker
+Phillip Collin
+Middle-blocker
+Bartłomiej Bołądź
+Spiker
+Daniel Malescha
+Spiker
+Jakub Janouch
+Setter
+Rafael Redwitz
+Setter
+Adrian Aciobanitei
+Wing-spiker
+
+
+
+Athanasis Protopsaltis
+Wing-spiker
+David Sossenheimer
+Wing-spiker 	

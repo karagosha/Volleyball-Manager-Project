@@ -21,15 +21,18 @@ namespace Assets.Script
             
            foreach( var item in teams)
            {
-                Teams.Add(new Team(item, "Russia"));  
+                var x = new Team(item, "Russia");
+                Teams.Add(x);
+                x.AddPlayers();
+
            }
         }
 
-        public List<Team> FinalTeams = new List<Team>(2);
+        public List<Team> FinalTeams = new List<Team>(2) { null, null };
 
-        public List<Team> SemiFinalTeams = new List<Team>(4);
+        public List<Team> SemiFinalTeams = new List<Team>(4) { null, null, null, null };
 
-        public List<Team> GroupTeams = new List<Team>(8);
+        public List<Team> GroupTeams = new List<Team>(8) { null, null, null, null, null, null, null, null };
 
         public void ShuffleGroup()
         {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
+using UnityEngine.SceneManagement;
+
 
 public class GameScript : MonoBehaviour
 {
@@ -16,35 +18,35 @@ public class GameScript : MonoBehaviour
         Tournament.ShuffleGroup();
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+   
     
 
     void OnGUI()
     {
-        
 
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 100, Screen.height / 2 - 25, 150, 50),  "te")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 100, Screen.height / 2 - 25, 150, 50), "Не определен")){}
 
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 250, Screen.height / 2 - 25 - 150, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 250, Screen.height / 2 - 25 - 150, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 250, Screen.height / 2 - 25 + 150, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 250, Screen.height / 2 - 25 + 150, 150, 50), "Не определен")){}
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 + 100, Screen.height / 2 - 25, 150, 50), IsTeam(Tournament.FinalTeams[0])))
+        {
+            SceneManager.LoadScene("Statistic");
+        }
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 - 100, Screen.height / 2 - 25, 150, 50), IsTeam(Tournament.FinalTeams[1]))) { }
 
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 - 225, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 - 225, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 + 225, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 + 225, 150, 50), "Не определен")){}
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 - 250, Screen.height / 2 - 25 - 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[0]))) { }
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 + 250, Screen.height / 2 - 25 - 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[1]))) { }
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 + 250, Screen.height / 2 - 25 + 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[2]))) { }
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 - 250, Screen.height / 2 - 25 + 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[3]))) { }
 
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 - 75, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 - 75, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 + 75, 150, 50), "Не определен")){}
-        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 + 75, 150, 50), "Не определен")){}
+        if (GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 - 225, 150, 50), IsTeam(Tournament.GroupTeams[0]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 - 225, 150, 50), IsTeam(Tournament.GroupTeams[1]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 + 225, 150, 50), IsTeam(Tournament.GroupTeams[2]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 + 225, 150, 50), IsTeam(Tournament.GroupTeams[3]))){}
+
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 - 75, 150, 50), IsTeam(Tournament.GroupTeams[4]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 - 75, 150, 50), IsTeam(Tournament.GroupTeams[5]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 + 400, Screen.height / 2 - 25 + 75, 150, 50), IsTeam(Tournament.GroupTeams[6]))){}
+        if(GUI.Button(new Rect(Screen.width / 2 - 75 - 400, Screen.height / 2 - 25 + 75, 150, 50), IsTeam(Tournament.GroupTeams[7]))){}
+
+        if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 200, 300, 50), "Начать следующий раунд")){ }
         
     }
 

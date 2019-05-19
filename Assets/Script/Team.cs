@@ -16,18 +16,19 @@ namespace Assets.Script
             this.Country = country;
         }
 
-        public List<Player> Players;
+        public List<Player> Players= new List<Player>(10);
         public String Name, Country;
         Int32 WinStats, LoseStats, CountOfGames;
+
         public void AddPlayers()
         {
-            string[] players = File.ReadAllLines(@"C:\Users\karagosha\Documents\ManagerProject\Assets\info\" + this.Name.ToString());
-            CountOfGames = Convert.ToInt32(players[0]);
-            WinStats = Convert.ToInt32(players[1]);
-            LoseStats = Convert.ToInt32(players[2]);
-            for (int i = 3; i < players.Length; i++)
+            string[] lines = File.ReadAllLines(@"C:\Users\karagosha\Documents\VolleballMan\Assets\info\" + this.Name.ToString()+".txt");
+            this.CountOfGames = Convert.ToInt32(lines[0]);
+            this.WinStats = Convert.ToInt32(lines[1]);
+            this.LoseStats = Convert.ToInt32(lines[2]);
+            for (int i = 3; i < 13/*countOfplayers*/; i++)
             {
-                Players.Add(new Player(players[i], players[i++], this));
+                this.Players.Add(new Player(lines[i], lines[i++], this));
             }
         }
     }
