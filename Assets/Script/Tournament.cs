@@ -49,27 +49,45 @@ namespace Assets.Script
             }
         }
 
-        public void GenerateGame(Team team1, Team team2)
+        public Team GenerateGame(Team team1, Team team2)
         {
-            double lyambda = 4;
-            Int32 time = 0;
-            time = time + exp(lyambda);
-            Int32 u = Uniform(0, lyambda);
-            if (lyambda > u) 
+            int team1Points = 0, team2Points = 0;
+            while ((team1Points > 25 || team2Points > 25)&& Math.Abs(team1Points-team2Points)>=2) 
             {
-
+                PoissonExp(team1.TeamPower);
+                PoissonExp(team2.TeamPower);
             }
-                           
+
+            if (team1Points > team2Points)
+                return team1;
+            else
+                return team2;
+
         }
 
-        private int Uniform(int v, double lyambda)
+        public int PoissonExp(double teamPower)
         {
-            throw new NotImplementedException();
+            double rate = 2;//плотность распределния
+            int k = -1;
+            double s = 0;
+            while (s < rate)
+            {
+                s += exp(1);
+                ++k;
+            }
+            return k;
+
         }
 
-        private int exp(double lyambda)
+
+        private double exp(double lyambda)
         {
-            throw new NotImplementedException();
+            return Math.Log(r()) / lyambda * (-1.0);
+        }
+        Random rand = new Random();
+        public double r()
+        {
+            return rand.NextDouble();
         }
     }
 }
