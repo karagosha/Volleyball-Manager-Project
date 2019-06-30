@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
 using UnityEngine.SceneManagement;
-using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -13,7 +12,10 @@ public class GameScript : MonoBehaviour
 
     public GameObject MainGameObject;
 
-    public GameObject gameObject ;
+    public GameObject gameObject;
+
+    public Text ResultLine;
+
 
     Team MyTeam;
 
@@ -82,7 +84,7 @@ public class GameScript : MonoBehaviour
             }
             if (GUI.Button(new Rect(Screen.width / 2 - 75 + 250, Screen.height / 2 - 25 + 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[3])))
             {
-                if (Tournament.FinalTeams[3] != null)
+                if (Tournament.SemiFinalTeams[3] != null)
                 {
                     gameObject.gameObject.SetActive(true);
                     MainGameObject.gameObject.SetActive(false);
@@ -92,7 +94,7 @@ public class GameScript : MonoBehaviour
             }
             if ( GUI.Button(new Rect(Screen.width / 2 - 75 - 250, Screen.height / 2 - 25 + 150, 150, 50), IsTeam(Tournament.SemiFinalTeams[1])))
             {
-                if (Tournament.FinalTeams[1] != null)
+                if (Tournament.SemiFinalTeams[1] != null)
                 {
                     gameObject.gameObject.SetActive(true);
                     curTeam = Tournament.SemiFinalTeams[1];
@@ -185,11 +187,29 @@ public class GameScript : MonoBehaviour
 
             if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 200, 300, 50), "Начать следующий раунд"))
             {
-                if (Tournament.StepOfTounament == 3)
+                if (Tournament.StepOfTounament == 2)
                 {
                     SceneManager.LoadScene("Statistic");
                 }
                 Tournament.GenerateRoundOfTournament();
+                String res = "";
+                if (Tournament.FinalTeams[0] == null)
+                {
+                    for (int i = 0; i < Tournament.GroupTeams.Count - 1; i++)
+                    {
+                        res += Tournament.GroupTeams[i].Name + " vs " + Tournament.GroupTeams[++i].Name + "  " + Tournament.SemiFinalTeams[(i - 1) / 2].LastReasult + "\r\n";
+                    }
+                   
+                }
+                else
+                {
+                    for (int i = 0; i < Tournament.SemiFinalTeams.Count - 1; i++)
+                    {
+                        res += Tournament.SemiFinalTeams[i].Name + " vs " + Tournament.SemiFinalTeams[++i].Name + "  " + Tournament.FinalTeams[(i - 1) / 2].LastReasult + "\r\n";
+                    }
+                }
+                ResultLine.text = res;
+
             }
         }
         else
@@ -234,7 +254,7 @@ public class GameScript : MonoBehaviour
         }
         else
         {
-            return (curTeam.Name + curTeam.LastReasult);
+            return (curTeam.Name);
         }
     }
 
