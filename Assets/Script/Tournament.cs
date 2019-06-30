@@ -34,6 +34,14 @@ namespace Assets.Script
 
         public List<Team> GroupTeams = new List<Team>(8) { null, null, null, null, null, null, null, null };
 
+        public List<String> GroupResult= new List<String>(4) { null, null, null, null };
+
+        public List<String> FinalResults= new List<String>(2) { null, null };
+
+        public static List<Team> Winner = new List<Team>(1) { null };
+
+        public List<String> WinResult = new List<String>(1) { null };
+
         public void ShuffleGroup()
         {
             Random random = new Random();
@@ -49,30 +57,76 @@ namespace Assets.Script
             }
         }
 
-        public Team GenerateGame(Team team1, Team team2)
+        public void GenerateRoundOfTournament()
+        {
+            switch (StepOfTounament)
+            {
+                case 0:
+                    SemiFinalTeams = getResult(GroupTeams);
+                    StepOfTounament++;
+                    break;
+                case 1:
+                    FinalTeams = getResult(SemiFinalTeams);
+                    StepOfTounament++;
+                    break;
+                case 2:
+                    Winner = getResult(FinalTeams);
+                    StepOfTounament++;
+                    break;
+            }
+        }
+
+        private List<Team> getResult(List<Team> list)
+        {
+            List<Team> resultList= new List<Team>(list.Count/2);
+           
+            for (int i = 0; i < list.Count; i++)
+            {
+                resultList.Add(GenerateGame(list[i], list[i++]));
+            }
+            
+            return resultList;
+        }
+
+        private Team GenerateGame(Team team1, Team team2)
         {
             int team1Points = 0, team2Points = 0;
-            while ((team1Points > 25 || team2Points > 25)&& Math.Abs(team1Points-team2Points)>=2) 
+            do
             {
-                PoissonExp(team1.TeamPower);
-                PoissonExp(team2.TeamPower);
-            }
+                team1Points += PoissonExp(team1.TeamPower, team1.boost);
+                team2Points += PoissonExp(team2.TeamPower, team2.boost);
+            } while ((team1Points < 25 && team2Points < 25)  /*Math.Abs(team1Points - team2Points) <= 2*/);
 
+                team1.LastReasult = team1Points.ToString() + "/" + team2Points.ToString();
+            team2.LastReasult = team1Points.ToString() + "/" + team2Points.ToString();
             if (team1Points > team2Points)
+            {
+                team1.CountOfGames++;
+                team1.WinStats++;
+                team2.CountOfGames++;
+                team2.LoseStats++;
                 return team1;
+            }
             else
+            {
+                team2.CountOfGames++;
+                team2.WinStats++;
+                team1.CountOfGames++;
+                team1.LoseStats++;
                 return team2;
+            }
+                
 
         }
 
-        public int PoissonExp(double teamPower)
+        private int PoissonExp(double teamPower, double boost)
         {
-            double rate = 2;//плотность распределния
+            double rate = 0.2;//плотность распределния
             int k = -1;
             double s = 0;
             while (s < rate)
             {
-                s += exp(1);
+                s += exp(1) + (teamPower+boost)/20;
                 ++k;
             }
             return k;

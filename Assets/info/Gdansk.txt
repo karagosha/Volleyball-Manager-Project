@@ -1,28 +1,26 @@
 30
 15
 15
-Петр Новаковский
-блокирующий
-Войцех Гжиб
-блокирующий
-Марчин Януш
-связующий
-Шимон Якубишак
-доигровщик
-Милош Хебда
-доигровщик
-Патрик Немец
-блокирующий
-Никола Михайлович
-доигровщик
-Мачей Музай
-диагональный
-Рубен Шотт
-доигровщик
-Мачей Олендерек
-либеро
-
-
+Peter Nowakowski
+blockers
+Wojciech Gib
+blockers
+Marcin Janusz
+hitter
+Shimon Jakubiak
+outide hitter
+Milosz Hebda
+outside hitter
+Patrick German
+blockers
+Nikola M
+outside hitter
+MAche Muzai
+hitter
+Ruben Schott
+outside hitter
+Maciej Olenderek
+libero
 
 Фабиан Мяхерский
 либеро

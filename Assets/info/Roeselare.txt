@@ -2,25 +2,25 @@
 20
 10
 Hendrik Tuerlinckx
-диагональный
+diagonal
 Sam Holt
-блокирующий
+blocker
 Matthijs Verhanneman
-блокирующий
+blocker
 Mathijs Desmet
-блокирующий
+blocker
 Ruben Van Hirtum
-блокирующий
+blocker
 Lou Kindt
-блокирующий
+blocker
 Pieter Coolman
-связующий
+diagonal
 Arno Van De Velde
-связующий
+diagonal
 Rune Fasteland
-связующий
+diagonal
 Brett Walsh
-доигровщик
+libero
 
 
 

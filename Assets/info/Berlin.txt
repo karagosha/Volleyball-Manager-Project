@@ -1,26 +1,26 @@
 30
 21
 9
-Поль Кэрролл
-диагональный
-Феликс Фишер
-блокирующий
-Никола Ковашевич
-доигровщик
-Роберт Кромм
-доигровщик
-Себастиан Кюнер
-связующий
-Стивен Маршалл
-доигровщик
-Александр Околич
-блокирующий
-Люк Перри
-либеро
-Рубен Шотт
-доигровщик
-Ваутер тер Маат
-диагональный
+Paul Carroll
+hitters
+Felix Fisher
+middle blockers
+Nicola Kovacevich
+outside hitter
+Robert Kromm
+outside hitter
+Sebastian Kuehner
+setter
+Stephen Marshall
+outside hitter
+Alexander Okolic
+middle blockers
+Luke Perry
+Libero.
+Ruben SCHOTT
+outside hitter
+Wouter Ter Maat
+hitters
 
 
 Грэхем Виграсс

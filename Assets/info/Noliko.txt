@@ -1,26 +1,26 @@
 30
 20
 10
-Кокс Йолан
-диагональный
-Даймонт Себастья
-либеро
-Ахи Мишель
-доигровщик
-Таммемаа Тимо
-блокирующий
-Маан Желте
-доигровщик
-Дронкерс Жаст
-либеро
-Бланкенау Майкл
-связующий
-Бруно Николас
-доигровщик
-Рыхлицки Камил
-доигровщик
-Ван Хейсте Стеф
-связующий
+Yolan Coke
+diagonal
+Daymont Sebastiani
+libero
+Ani Michellethe
+outside hitter
+Tammemae Timo
+blocker
+Maan Jekte
+outside hitter
+Dronkers Zhast
+libero
+Blankenau Michael
+hitter
+Bruno Nicholas
+outside hitter
+Rychlicki Kamil
+outside hitter
+Van Heiste Steph
+hitter
 
 
 

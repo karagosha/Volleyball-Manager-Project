@@ -17,7 +17,7 @@ namespace Assets.info
         }
         Team Team;
         int CountOfGoal = 0;
-        String Name;
-        String Role;
+        public String Name;
+        public String Role;
     }
 }

@@ -1,27 +1,26 @@
 30
 14
 16
-Лисинац Сречко
-блокирующий
-Влажлы Мариуш
-диагональный
-Януш Марцин
-связующий
-Клос Кароль
-блокирующий
-Беднож Бартош
-доигровщик
-Катич Милан
-доигровщик
-Чарновский Патрик
-блокирующий
-Эбадипур Милад
-доигровщик
-Ромац Шимон
-диагональный
-Неделькович Александар
-блокирующий
-
+Lisisnac, Srecko
+middle blockers
+Wlazly Mariusz
+outside hitters
+Janusz Marchin
+setters
+Clos Carole
+middle blockers
+Bednarz Bartosz
+outside hitter
+Katic Milan
+outside hitter
+Patrick Czarnovski
+middle blockers
+Abdipour Milad
+outside hitters
+Romac Shimon
+hitters
+Nedeljkovic Aleksandr
+middle blocker
 
 Ломач Гжегож
 связующий
