@@ -16,6 +16,8 @@ public class GameScript : MonoBehaviour
 
     public Text ResultLine;
 
+    public Text NameTeam;
+
 
     Team MyTeam;
 
@@ -216,15 +218,15 @@ public class GameScript : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 300, Screen.height / 2 +50, 300, 50), curTeam.boost.ToString());
 
-            GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 200, 300, 50), curTeam.Name);
+            NameTeam.text = curTeam.Name;
 
             GUI.Label(new Rect(Screen.width / 2 - 300, Screen.height / 2, 150, 50),
                 curTeam.WinStats.ToString() + '/' + curTeam.LoseStats.ToString());
 
             for (int i = 0; i < curTeam.Players.Count; i++)
             {
-                GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 140 + 30 * i, 250, 30), curTeam.Players[i].Name);
-                GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 105 + 30 * i, 150, 30), curTeam.Players[i].Role);
+                GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 170 + 60 * i, 250, 30), curTeam.Players[i].Name);
+                GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 140 + 60 * i, 150, 30), curTeam.Players[i].Role);
             }
 
             if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 200, 300, 50), "Назад"))
