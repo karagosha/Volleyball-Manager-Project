@@ -12,17 +12,6 @@ public class Statistic : MonoBehaviour
 
 
     Team Team;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnGUI()
     {
@@ -31,7 +20,7 @@ public class Statistic : MonoBehaviour
         GUI.Label(new Rect(Screen.width / 2 -300, Screen.height / 2 , 150, 50), 
             Tournament.Winner[0].WinStats.ToString() + '/' + Tournament.Winner[0].LoseStats.ToString());
 
-        for (int i = 0; i < Tournament.Winner[0].Players.Count; i++)
+        for (int i = 0; i < Tournament.Winner[0].Players.Count; i++)// список инроков победившей команды
         {
             GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 -100 + 40*i, 150, 30), Tournament.Winner[0].Players[i].Name);
             GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 125 + 40*i, 150, 30), Tournament.Winner[0].Players[i].Role);

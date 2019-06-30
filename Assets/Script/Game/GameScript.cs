@@ -10,20 +10,20 @@ using System;
 public class GameScript : MonoBehaviour
 {
 
-    public GameObject MainGameObject;
+    public GameObject MainGameObject;// основной Canvas
 
-    public GameObject gameObject;
+    public GameObject gameObject;// Canvas со статистикой
 
-    public Text ResultLine;
+    public Text ResultLine;// Text в который выводится счет матча
 
-    public Text NameTeam;
+    public Text NameTeam;// Название команды в Canvas статистики
 
 
-    Team MyTeam;
+    Team MyTeam;// команды выбранная при старте игры
 
     Tournament Tournament;
 
-    Team curTeam;
+    Team curTeam;// хранит 
 
     //Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class GameScript : MonoBehaviour
 
     }
 
-    private bool MainIsActive = true;   
+    private bool MainIsActive = true; // false если открыта стаистика команды  
 
 
     void OnGUI()
@@ -42,14 +42,14 @@ public class GameScript : MonoBehaviour
 
         if (MainIsActive)
         {
-            if (GUI.Button(new Rect(Screen.width / 2 - 75 + 100, Screen.height / 2 - 25, 150, 50), IsTeam(Tournament.FinalTeams[1])))
+            if (GUI.Button(new Rect(Screen.width / 2 - 75 + 100, Screen.height / 2 - 25, 150, 50), IsTeam(Tournament.FinalTeams[1])))// вывод кнопки команды
             {
                 if (Tournament.FinalTeams[1] != null)
                 {
-                    gameObject.gameObject.SetActive(true);
-                    MainGameObject.gameObject.SetActive(false);
+                    gameObject.gameObject.SetActive(true);// скрывает основной Canvas 
+                    MainGameObject.gameObject.SetActive(false);// выводит Canvas статистики
                     MainIsActive = false;
-                    curTeam = Tournament.FinalTeams[1];
+                    curTeam = Tournament.FinalTeams[1];// присваивание команды выбранной
                 }
             }
             if ( GUI.Button(new Rect(Screen.width / 2 - 75 - 100, Screen.height / 2 - 25, 150, 50), IsTeam(Tournament.FinalTeams[0])))
@@ -187,14 +187,14 @@ public class GameScript : MonoBehaviour
                 }
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 200, 300, 50), "Начать следующий раунд"))
+            if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 200, 300, 50), "Начать следующий раунд"))// кнопка генерации след. этапа
             {
-                if (Tournament.StepOfTounament == 2)
+                if (Tournament.StepOfTounament == 2)// если уже финал вывести статистику
                 {
                     SceneManager.LoadScene("Statistic");
                 }
-                Tournament.GenerateRoundOfTournament();
-                String res = "";
+                Tournament.GenerateRoundOfTournament();// вызов метода генерации
+                String res = "";//  строка с результатами игр
                 if (Tournament.FinalTeams[0] == null)
                 {
                     for (int i = 0; i < Tournament.GroupTeams.Count - 1; i++)
@@ -210,11 +210,11 @@ public class GameScript : MonoBehaviour
                         res += Tournament.SemiFinalTeams[i].Name + " vs " + Tournament.SemiFinalTeams[++i].Name + "  " + Tournament.FinalTeams[(i - 1) / 2].LastReasult + "\r\n";
                     }
                 }
-                ResultLine.text = res;
+                ResultLine.text = res;// вывод на окно
 
             }
         }
-        else
+        else// иначе вывод статистики
         {
             GUI.Label(new Rect(Screen.width / 2 - 300, Screen.height / 2 +50, 300, 50), curTeam.boost.ToString());
 
@@ -223,7 +223,7 @@ public class GameScript : MonoBehaviour
             GUI.Label(new Rect(Screen.width / 2 - 300, Screen.height / 2, 150, 50),
                 curTeam.WinStats.ToString() + '/' + curTeam.LoseStats.ToString());
 
-            for (int i = 0; i < curTeam.Players.Count; i++)
+            for (int i = 0; i < curTeam.Players.Count; i++)// игрок команды и его роль
             {
                 GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 170 + 60 * i, 250, 30), curTeam.Players[i].Name);
                 GUI.Label(new Rect(Screen.width / 2 + 200, Screen.height / 2 - 140 + 60 * i, 150, 30), curTeam.Players[i].Role);

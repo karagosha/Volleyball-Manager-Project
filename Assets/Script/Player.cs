@@ -16,7 +16,7 @@ namespace Assets.info
             this.Team = team;
         }
         Team Team;
-        int CountOfGoal = 0;
+        int CountOfGoal = 0;// кол-во голов пока не используется
         public String Name;
         public String Role;
     }

@@ -10,39 +10,39 @@ namespace Assets.Script
     {
         public Tournament(String[] teams)
         {
-            CreateTeams(teams);
+            CreateTeams(teams);// создание команд, передаем список команд
         }
 
         List<Team> Teams = new List<Team>();
-        public int StepOfTounament = 0;
+        public int StepOfTounament = 0;// этап турнира 0- групповой этапь 1-  полуфиналы 2 - финал
 
         public void CreateTeams(String[] teams)
         {
             
            foreach( var item in teams)
            {
-                var x = new Team(item, "Russia");
+                var x = new Team(item, "Russia");// страна у всех Россия, возможно изменить в дальнейшем добавить выбор страны
                 Teams.Add(x);
                 x.AddPlayers();
 
            }
         }
 
-        public List<Team> FinalTeams = new List<Team>(2) { null, null };
+        public List<Team> FinalTeams = new List<Team>(2) { null, null };// лист комнад вышедших в финал
 
-        public List<Team> SemiFinalTeams = new List<Team>(4) { null, null, null, null };
+        public List<Team> SemiFinalTeams = new List<Team>(4) { null, null, null, null };// лист комнад вышедших в полуфинал
 
-        public List<Team> GroupTeams = new List<Team>(8) { null, null, null, null, null, null, null, null };
+        public List<Team> GroupTeams = new List<Team>(8) { null, null, null, null, null, null, null, null };// лист комнад группового этапа
 
-        public List<String> GroupResult= new List<String>(4) { null, null, null, null };
+        public List<String> GroupResult= new List<String>(4) { null, null, null, null };// не используется
 
-        public List<String> FinalResults= new List<String>(2) { null, null };
+        public List<String> FinalResults= new List<String>(2) { null, null };// не используется
 
-        public static List<Team> Winner = new List<Team>(1) { null };
+        public static List<Team> Winner = new List<Team>(1) { null };// победитель турнира
 
-        public List<String> WinResult = new List<String>(1) { null };
+        public List<String> WinResult = new List<String>(1) { null };// не используется
 
-        public void ShuffleGroup()
+        public void ShuffleGroup()// перемешивает команды
         {
             Random random = new Random();
             Int32 n = Teams.Count;
@@ -57,7 +57,7 @@ namespace Assets.Script
             }
         }
 
-        public void GenerateRoundOfTournament()
+        public void GenerateRoundOfTournament()// генератор событий
         {
             switch (StepOfTounament)
             {
@@ -76,7 +76,7 @@ namespace Assets.Script
             }
         }
 
-        private List<Team> getResult(List<Team> list)
+        private List<Team> getResult(List<Team> list)// выдает лист победителей
         {
             List<Team> resultList= new List<Team>(list.Count/2);
            
@@ -88,7 +88,7 @@ namespace Assets.Script
             return resultList;
         }
 
-        private Team GenerateGame(Team team1, Team team2)
+        private Team GenerateGame(Team team1, Team team2)// генерация игры
         {
             int team1Points = 0, team2Points = 0;
             do
@@ -99,7 +99,7 @@ namespace Assets.Script
 
                 team1.LastReasult = team1Points.ToString() + "/" + team2Points.ToString();
             team2.LastReasult = team1Points.ToString() + "/" + team2Points.ToString();
-            if (team1Points > team2Points)
+            if (team1Points > team2Points)// внесение данных
             {
                 team1.CountOfGames++;
                 team1.WinStats++;

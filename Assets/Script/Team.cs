@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Script
 {
@@ -22,9 +23,10 @@ namespace Assets.Script
         public double TeamPower = 0;
         public String LastReasult = "";
         public double boost = 0;
-        public void AddPlayers()
+        public void AddPlayers()// Инизиализация игроков команды
         {
-            string[] lines = File.ReadAllLines(@"C:\Users\karagosha\Documents\VolleballMan\Assets\info\" + this.Name.ToString()+".txt");
+            string path = Application.dataPath + "/info/" + this.Name.ToString() + ".txt";
+            string[] lines = File.ReadAllLines(path);
             this.CountOfGames = Convert.ToInt32(lines[0]);
             this.WinStats = Convert.ToInt32(lines[1]);
             this.LoseStats = Convert.ToInt32(lines[2]);
